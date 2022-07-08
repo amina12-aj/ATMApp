@@ -3,9 +3,25 @@ using System.Collections.Generic;
 using System.Text;
 
 
-namespace ATMApp.UI { 
-     public static class UsersTask
-{
+namespace ATMApp.UI
+
+{ public static class UsersTask
+
+{ //method 1 to show users pin as asterisk
+    public static string GetSecretNumber (string Prompt)
+    { bool IsPrompt = true;
+        //string Asteriks = " ";
+
+        StringBuilder input = new StringBuilder();
+        while (true)
+        { if (IsPrompt)
+                Console.WriteLine(Prompt);
+            ConsoleKeyInfo InputKeyInfo = Console.ReadKey(true);
+
+        }
+    }
+
+
     //method to print success or error message using color to users
     public static void PrintMessage(string Msg, bool Success = true)
     {
@@ -16,7 +32,6 @@ namespace ATMApp.UI {
         else { Console.ForegroundColor = ConsoleColor.Red; }
 
         Console.WriteLine(Msg);
-        Console.ResetColor();
         PressEnterToContinue();
 
     }
