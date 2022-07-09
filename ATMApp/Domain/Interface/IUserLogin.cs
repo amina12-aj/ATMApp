@@ -6,6 +6,6 @@ namespace ATMApp.Domain.Interface
 {
     public interface IUserLogin
     {
-        public void CheckUserCardNumberAndPassword();
+        public void CheckUserCardNumberAndPin();
     }
 }

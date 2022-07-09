@@ -20,12 +20,17 @@ namespace ATMApp.UI
             {
                 if (IsPrompt)
                     Console.WriteLine(prompt);
+                IsPrompt = false;
                 ConsoleKeyInfo InputKey = Console.ReadKey(true);
-                if (Input.Length == 4)
-                { break; }
+                if(InputKey.Key == ConsoleKey.Enter)
+                {
+                    if (Input.Length == 4)
+                    { break; }
+                }
+               
                 else
                 {
-                    PrintMessage("Please enter a four digit number", false);
+                    PrintMessage("Please enter your four digit number", false);
                     IsPrompt = true;
                     Input.Clear();
                 }

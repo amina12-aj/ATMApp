@@ -25,7 +25,7 @@ namespace ATMApp
  UserAccountList.Add(new UserAccount { Id = 4, FullName = "Amina Riat", AccountNumber = 123756, CardNumber = 6230, CardPin = 2567, AccountBalance = 400000.00m, Islocked = false }); }
         
 
-        public void CheckUserCardNumberAndPassword()
+        public void CheckUserCardNumberAndPin()
         {
            //bool IsNotCorrect = false;
             UserAccount TestUserAccount = new UserAccount();
