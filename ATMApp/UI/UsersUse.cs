@@ -9,36 +9,38 @@ namespace ATMApp.UI
     public static class UsersTask
 
     //method 1 to show users pin as asterisk
-    { public static string GetSecretPin(string Prompt)
-    
+    {
+        public static string GetSecretPin(string prompt)
         {   
             bool IsPrompt = true;
             string Asteriks = " ";
-            StringBuilder input = new StringBuilder();
+            StringBuilder Input = new StringBuilder();
 
             while (true)
             {
                 if (IsPrompt)
-                    Console.WriteLine(Prompt);
-                ConsoleKeyInfo inputKey = Console.ReadKey(true);
-                if (input.Length == 4)
+                    Console.WriteLine(prompt);
+                ConsoleKeyInfo InputKey = Console.ReadKey(true);
+                if (Input.Length == 4)
                 { break; }
                 else
                 {
                     PrintMessage("Please enter a four digit number", false);
                     IsPrompt = true;
-                    input.Clear();
+                    Input.Clear();
+                }
+                if (InputKey.Key == ConsoleKey.Backspace && Input.Length > 0)
+                {
+                    Input.Remove(Input.Length - 1, 1);
+                }
+                else if (InputKey.Key != ConsoleKey.Backspace)
+                {
+                    Input.Append(InputKey.KeyChar);
+                    Console.Write(Asteriks + "*");
                 }
             }
-            if (inputKey.Key == ConsoleKey.Backspace && input.Length > 0)
-            {
-                input.Remove(input.Length - 1, 1);
-            }
-            else if(inputKey.Key != ConsoleKey.Backspace)
-            {
-                input.Append(inputKey.KeyChar);
-                Console.Write(Asteriks + "*");
-            }
+           
+           
     }
 
 
