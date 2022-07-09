@@ -5,21 +5,42 @@ using System.Text;
 
 namespace ATMApp.UI
 
-{ public static class UsersTask
+{ 
+    public static class UsersTask
 
-{ //method 1 to show users pin as asterisk
-    public static string GetSecretNumber (string Prompt)
-    { bool IsPrompt = true;
-        //string Asteriks = " ";
+    //method 1 to show users pin as asterisk
+    { public static string GetSecretPin(string Prompt)
+    
+        {   
+            bool IsPrompt = true;
+            string Asteriks = " ";
+            StringBuilder input = new StringBuilder();
 
-        StringBuilder input = new StringBuilder();
-        while (true)
-        { if (IsPrompt)
-                Console.WriteLine(Prompt);
-            ConsoleKeyInfo InputKeyInfo = Console.ReadKey(true);
-
-        }
+            while (true)
+            {
+                if (IsPrompt)
+                    Console.WriteLine(Prompt);
+                ConsoleKeyInfo inputKey = Console.ReadKey(true);
+                if (input.Length == 4)
+                { break; }
+                else
+                {
+                    PrintMessage("Please enter a four digit number", false);
+                    IsPrompt = true;
+                    input.Clear();
+                }
+            }
+            if (inputKey.Key == ConsoleKey.Backspace && input.Length > 0)
+            {
+                input.Remove(input.Length - 1, 1);
+            }
+            else if(inputKey.Key != ConsoleKey.Backspace)
+            {
+                input.Append(inputKey.KeyChar);
+                Console.Write(Asteriks + "*");
+            }
     }
+
 
 
     //method to print success or error message using color to users
