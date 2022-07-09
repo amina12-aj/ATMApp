@@ -39,7 +39,7 @@ namespace ATMApp.UI
                     Console.Write(Asteriks + "*");
                 }
             }
-           
+            return Input.ToString();
            
     }
 

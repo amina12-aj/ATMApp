@@ -10,6 +10,7 @@ namespace ATMApp.Logic
         static void Main(string[] args)
         {
             Welcome.Message();
+            ATMApp atmapp = new ATMApp();
             long CardNumber = Validation.ValidateInput<long>("Enter your Card Number");
             Console.WriteLine($"Your Card Number is {CardNumber}");
             UsersTask.PressEnterToContinue();
