@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using ATMApp.Domain.entity;
 using ATMApp.Domain.Interface;
 using ATMApp.UI;
@@ -26,14 +27,15 @@ namespace ATMApp
         
 
         public void CheckUserCardNumberAndPin()
-        {
-           //bool IsNotCorrect = false;
-            UserAccount TestUserAccount = new UserAccount();
-            long cardNumber =TestUserAccount.CardNumber = Validation.ValidateInput<long>("Enter your Card Number");
-            Console.WriteLine($"Your Card Number is {cardNumber}");
-            TestUserAccount.CardPin = Convert.ToInt32(UsersTask.GetSecretPin("Enter your card pin"));
-            UsersTask.PressEnterToContinue();
-
+        {//bool IsNotCorrect = false;
+ 
+            int Timer = 10;
+            for (int i = 10; i < Timer; i++)
+            {
+                Console.Write("....");
+                Thread.Sleep(50);
+            }
+            Console.Clear();
         }
-   }
+    }
 }

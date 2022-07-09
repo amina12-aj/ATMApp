@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ATMApp.Domain.entity;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -77,15 +78,25 @@ namespace ATMApp.UI
   public static string GetUsersInput(string prompt) {
             Console.WriteLine($"Enter your {prompt}");
             return Console.ReadLine();
-        } 
-    //method to move user to another task or function
-       public static void PressEnterToContinue()
+        }
+        //method to move user to another task or function
+        public static void PressEnterToContinue()
         {
             Console.ReadLine();
             Console.WriteLine("\nPress Enter to Continue.....");
-           
+
 
         }
+        internal static UserAccount UserLoginForm()
+        {
+            UserAccount TestUserAccount = new UserAccount();
+            long cardNumber = TestUserAccount.CardNumber = Validation.ValidateInput<long>("Enter your Card Number");
+            Console.WriteLine($"Your Card Number is {cardNumber}");
+            TestUserAccount.CardPin = Convert.ToInt32(UsersTask.GetSecretPin("\nEnter your card pin"));
+            Console.WriteLine("\nChecking Card Number and Pin...");
+            UsersTask.PressEnterToContinue();
+            return TestUserAccount;
+        } 
     }
 }
 
