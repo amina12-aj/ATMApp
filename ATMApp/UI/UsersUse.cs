@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Threading;
 
 namespace ATMApp.UI
 
@@ -93,10 +93,19 @@ namespace ATMApp.UI
             long cardNumber = TestUserAccount.CardNumber = Validation.ValidateInput<long>("Enter your Card Number");
             Console.WriteLine($"Your Card Number is {cardNumber}");
             TestUserAccount.CardPin = Convert.ToInt32(UsersTask.GetSecretPin("\nEnter your card pin"));
-            Console.WriteLine("\nChecking Card Number and Pin...");
             UsersTask.PressEnterToContinue();
             return TestUserAccount;
         } 
+        public static void LoginProgress()
+        {
+            int Timer = 10;
+            for (int i = 10; i < Timer; i++)
+            {
+                Console.Write("....");
+                Thread.Sleep(50);
+            }
+            Console.Clear();
+        }
     }
 }
 

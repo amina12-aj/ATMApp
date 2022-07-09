@@ -28,14 +28,11 @@ namespace ATMApp
 
         public void CheckUserCardNumberAndPin()
         {//bool IsNotCorrect = false;
- 
-            int Timer = 10;
-            for (int i = 10; i < Timer; i++)
-            {
-                Console.Write("....");
-                Thread.Sleep(50);
-            }
-            Console.Clear();
+            //instatianting the userloginform method from the usertasks class
+          UserAccount UsersInput =  UsersTask.UserLoginForm();
+            Console.WriteLine("\nChecking Card Number and Pin...");
+            UsersTask.LoginProgress();
+            
         }
     }
 }
