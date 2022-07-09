@@ -13,7 +13,7 @@ namespace ATMApp.UI
         public static string GetSecretPin(string prompt)
         {   
             bool IsPrompt = true;
-            string Asteriks = " ";
+            string Asteriks = "*";
             StringBuilder Input = new StringBuilder();
 
             while (true)
@@ -22,31 +22,40 @@ namespace ATMApp.UI
                     Console.WriteLine(prompt);
                 IsPrompt = false;
                 ConsoleKeyInfo InputKey = Console.ReadKey(true);
-                if(InputKey.Key == ConsoleKey.Enter)
-                {
+
+                if (InputKey.Key == ConsoleKey.Enter )
                     if (Input.Length == 4)
-                    { break; }
+                {
+                    break;
+
                 }
-               
+
                 else
                 {
                     PrintMessage("Please enter your four digit number", false);
-                    IsPrompt = true;
                     Input.Clear();
+                    IsPrompt = true;
+                    continue;
                 }
+
+                //this line of code clears the users pin from the end
+            
                 if (InputKey.Key == ConsoleKey.Backspace && Input.Length > 0)
                 {
-                    Input.Remove(Input.Length - 1, 1);
+                    Input.Remove(Input.Length-1, 1);
+
                 }
+                //this code assigns *** to the value of users pin
                 else if (InputKey.Key != ConsoleKey.Backspace)
                 {
                     Input.Append(InputKey.KeyChar);
-                    Console.Write(Asteriks + "*");
+                    Console.Write(Asteriks);
                 }
+            
             }
+
             return Input.ToString();
-           
-    }
+        }
 
 
 

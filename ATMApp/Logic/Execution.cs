@@ -12,8 +12,8 @@ namespace ATMApp.Logic
             Welcome.Message();
             ATMApp atmapp = new ATMApp();
             atmapp.CheckUserCardNumberAndPin();
-            long CardNumber = Validation.ValidateInput<long>("Enter your Card Number");
-            Console.WriteLine($"Your Card Number is {CardNumber}");
+            //long CardNumber = Validation.ValidateInput<long>("Enter your Card Number");
+            //Console.WriteLine($"Your Card Number is {CardNumber}");
             UsersTask.PressEnterToContinue();
 
         }

@@ -29,8 +29,10 @@ namespace ATMApp
         {
            //bool IsNotCorrect = false;
             UserAccount TestUserAccount = new UserAccount();
-            TestUserAccount.CardNumber = Validation.ValidateInput<long>("Enter your Card Number");
+            long cardNumber =TestUserAccount.CardNumber = Validation.ValidateInput<long>("Enter your Card Number");
+            Console.WriteLine($"Your Card Number is {cardNumber}");
             TestUserAccount.CardPin = Convert.ToInt32(UsersTask.GetSecretPin("Enter your card pin"));
+            UsersTask.PressEnterToContinue();
 
         }
    }
