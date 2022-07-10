@@ -10,8 +10,11 @@ namespace ATMApp.Logic
         static void Main(string[] args)
         {
             Welcome.Message();
+            //instanstiate the atmApp class
             ATMApp atmapp = new ATMApp();
+            //calling the atmApp class method
             atmapp.CheckUserCardNumberAndPin();
+
             //long CardNumber = Validation.ValidateInput<long>("Enter your Card Number");
             //Console.WriteLine($"Your Card Number is {CardNumber}");
             UsersTask.PressEnterToContinue();

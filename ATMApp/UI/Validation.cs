@@ -9,15 +9,15 @@ namespace ATMApp.UI
     {
         public static T ValidateInput<T>(string prompt)
         { bool valid = true;
-            string UserInput;
+          string userInput;
 
             while (valid)
             {
-                UserInput = UsersTask.GetUsersInput(prompt);
+                userInput = UsersTask.GetUsersInput(prompt);
                 try { var Converter = TypeDescriptor.GetConverter(typeof(T));
                     if (Converter != null)
                     {
-                        return (T)Converter.ConvertFromString(UserInput);
+                        return (T)Converter.ConvertFromString(userInput);
                     }
                     else { return default; }
                 }
