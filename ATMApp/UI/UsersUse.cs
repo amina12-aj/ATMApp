@@ -92,10 +92,17 @@ namespace ATMApp.UI
             CheckingUserDetails();
             return testUserAccount;
         }
-       public  static void CheckingUserDetails()
+
+        public static void CheckingUserDetails()
         {
             Console.WriteLine("\nChecking Card Number and Pin...");
         }
+
+        internal static void PrintLockScreen() {
+            Console.Clear();
+            PrintMessage("Your account is locked!Please go the nearest bank. Thank You", true);
+        }
+
        internal static void LoginProgress()
         {
             int Timer = 10;
