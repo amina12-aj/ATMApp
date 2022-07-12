@@ -28,8 +28,8 @@ namespace ATMApp
 
         public void CheckUserCardNumberAndPin()
         {
-            bool IsNotCorrect = false;
-            while (IsNotCorrect == false)
+            bool IsCorrect = false;
+            while (IsCorrect == false)
             {      //instatianting the userloginform and login progress method from the usertasks class
                 UserAccount inputAccount = UsersTask.UserLoginForm();
                 UsersTask.LoginProgress();
@@ -45,8 +45,33 @@ namespace ATMApp
                     if (inputAccount.CardPin.Equals(selectedAccount.CardPin))
                     {
                         selectedAccount = registeredAccount;
+                        if(selectedAccount.Islocked || selectedAccount.TotalLogin > 3 )
+                        {
+                            UsersTask.PrintLockScreen();
+                        }
+                        else
+                        {
+                            selectedAccount.TotalLogin = 0;
+                            IsCorrect = true;
+                            break;
+                        }
                     }
                 }
+                if (IsCorrect == false)
+                {
+                    UsersTask.PrintMessage("You entered an incorrect pin", false);
+                    selectedAccount.Islocked = selectedAccount.TotalLogin == 3;
+                    if (selectedAccount.Islocked)
+                    {
+                        UsersTask.PrintLockScreen();
+                    }    
+                }
+                Console.Clear();
+                
+            }
+            public static Welcome()
+            {
+                Console.WriteLine($"Welcome,{selectedAccount.FullName}");
 
             }
         }

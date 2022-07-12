@@ -101,6 +101,9 @@ namespace ATMApp.UI
         internal static void PrintLockScreen() {
             Console.Clear();
             PrintMessage("Your account is locked!Please go the nearest bank. Thank You", true);
+            PressEnterToContinue();
+            //this line of code terminates an application
+            Environment.Exit(1);
         }
 
        internal static void LoginProgress()
