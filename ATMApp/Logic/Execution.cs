@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
+
 namespace ATMApp.Logic
 {
     class Execution
@@ -14,7 +16,8 @@ namespace ATMApp.Logic
             ATMApp atmapp = new ATMApp();
             //calling the atmApp class method
             atmapp.CheckUserCardNumberAndPin();
-
+            atmapp.RegisteredAccountList();
+            atmapp.Welcome();
             //long CardNumber = Validation.ValidateInput<long>("Enter your Card Number");
             //Console.WriteLine($"Your Card Number is {CardNumber}");
             UsersTask.PressEnterToContinue();

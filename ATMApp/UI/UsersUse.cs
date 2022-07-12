@@ -106,9 +106,8 @@ namespace ATMApp.UI
             Environment.Exit(1);
         }
 
-       internal static void LoginProgress()
+       internal static void LoginProgress(int Timer = 10)
         {
-            int Timer = 10;
             for (int i = 10; i < Timer; i++)
             {
                 Console.Write("....");
